@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University Registration · Minimal</title>
+  <!-- Tailwind CSS via CDN + small base tweaks -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Optional: Inter font for a clean look -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+  <style>
+    /* subtle base font – keeps Tailwind's utility-first approach */
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="min-h-screen bg-slate-50 flex items-center justify-center p-4 antialiased">
+
+  <!-- Registration Card – clean, minimal, with subtle shadow -->
+  <div class="w-full max-w-2xl bg-white rounded-2xl shadow-sm border border-slate-200/70 p-8 md:p-10">
+    
+    <!-- Header -->
+    <div class="mb-8">
+      <h1 class="text-3xl font-semibold tracking-tight text-slate-800">University registration</h1>
+      <p class="text-slate-500 text-sm mt-1.5">Fill in your details to join the student portal.</p>
+    </div>
+
+    <!-- Form -->
+    <form class="space-y-6" action="#" method="post" novalidate>
+      
+      <!-- Row 1: Full name and Student ID (two columns on desktop) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Full name -->
+        <div>
+          <label for="fullname" class="block text-sm font-medium text-slate-700 mb-1.5">Full name <span class="text-rose-500">*</span></label>
+          <input 
+            type="text" 
+            id="fullname" 
+            name="fullname" 
+            placeholder="e.g. Alex Morgan"
+            required
+            class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500 transition-colors"
+          >
+        </div>
+        <!-- Student ID -->
+        <div>
+          <label for="studentid" class="block text-sm font-medium text-slate-700 mb-1.5">Student ID <span class="text-rose-500">*</span></label>
+          <input 
+            type="text" 
+            id="studentid" 
+            name="studentid" 
+            placeholder="e.g. U20261234"
+            required
+            class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500 transition-colors"
+          >
+        </div>
+      </div>
+
+      <!-- Row 2: University email and Personal email -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- University email -->
+        <div>
+          <label for="uniemail" class="block text-sm font-medium text-slate-700 mb-1.5">University email <span class="text-rose-500">*</span></label>
+          <input 
+            type="email" 
+            id="uniemail" 
+            name="uniemail" 
+            placeholder="alex.morgan@university.edu"
+            required
+            class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500 transition-colors"
+          >
+          <p class="text-xs text-slate-400 mt-1.5">Use your official university address</p>
+        </div>
+        <!-- Personal email (optional) -->
+        <div>
+          <label for="personalemail" class="block text-sm font-medium text-slate-700 mb-1.5">Personal email <span class="text-slate-400 text-xs font-normal">(optional)</span></label>
+          <input 
+            type="email" 
+            id="personalemail" 
+            name="personalemail" 
+            placeholder="alex@example.com"
+            class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500 transition-colors"
+          >
+        </div>
+      </div>
+
+      <!-- Row 3: Password and Confirm password -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Password -->
+        <div>
+          <label for="password" class="block text-sm font-medium text-slate-700 mb-1.5">Password <span class="text-rose-500">*</span></label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            placeholder="Create a password"
+            required
+            class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500 transition-colors"
+          >
+          <p class="text-xs text-slate-400 mt-1.5">At least 8 characters</p>
+        </div>
+        <!-- Confirm password -->
+        <div>
+          <label for="confirmpassword" class="block text-sm font-medium text-slate-700 mb-1.5">Confirm password <span class="text-rose-500">*</span></label>
+          <input 
+            type="password" 
+            id="confirmpassword" 
+            name="confirmpassword" 
+            placeholder="Re-enter password"
+            required
+            class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500 transition-colors"
+          >
+        </div>
+      </div>
+
+      <!-- Row 4: Major / Program (select) + Year of study -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Major / Program -->
+        <div>
+          <label for="major" class="block text-sm font-medium text-slate-700 mb-1.5">Major / Program <span class="text-rose-500">*</span></label>
+          <select 
+            id="major" 
+            name="major" 
+            required
+            class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500 transition-colors appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2364748b%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpolyline points=%226 9 12 15 18 9%22/%3E%3C/svg%3E')] bg-[length:16px] bg-[right_1rem_center] bg-no-repeat pr-10"
+          >
+            <option value="" disabled selected>Select your program</option>
+            <option value="cs">Computer Science</option>
+            <option value="eng">Engineering</option>
+            <option value="bus">Business Administration</option>
+            <option value="bio">Biology</option>
+            <option value="psy">Psychology</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <!-- Year of study -->
+        <div>
+          <label for="year" class="block text-sm font-medium text-slate-700 mb-1.5">Year of study <span class="text-rose-500">*</span></label>
+          <select 
+            id="year" 
+            name="year" 
+            required
+            class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500 transition-colors appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2364748b%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpolyline points=%226 9 12 15 18 9%22/%3E%3C/svg%3E')] bg-[length:16px] bg-[right_1rem_center] bg-no-repeat pr-10"
+          >
+            <option value="" disabled selected>Select year</option>
+            <option value="1">1st year</option>
+            <option value="2">2nd year</option>
+            <option value="3">3rd year</option>
+            <option value="4">4th year</option>
+            <option value="5">5th year+</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Terms & conditions checkbox -->
+      <div class="flex items-start gap-3 pt-2">
+        <input 
+          type="checkbox" 
+          id="terms" 
+          name="terms" 
+          required
+          class="mt-0.5 h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500/30 focus:ring-offset-0 transition"
+        >
+        <label for="terms" class="text-sm text-slate-600 leading-relaxed">
+          I agree to the <a href="#" class="font-medium text-indigo-600 hover:text-indigo-700 underline underline-offset-2">student code of conduct</a> and <a href="#" class="font-medium text-indigo-600 hover:text-indigo-700 underline underline-offset-2">privacy policy</a>.
+        </label>
+      </div>
+
+      <!-- Register button -->
+      <button 
+        type="submit" 
+        class="w-full mt-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-xl text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      >
+        Register now
+      </button>
+
+      <!-- Alternative login link -->
+      <p class="text-center text-sm text-slate-500 pt-2">
+        Already registered? <a href="#" class="font-medium text-indigo-600 hover:text-indigo-700 transition-colors">Sign in</a>
+      </p>
+    </form>
+  </div>
+
+</body>
+</html>
